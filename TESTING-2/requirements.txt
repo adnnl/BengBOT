@@ -1,9 +1,5 @@
-Flask==2.0.0
-Werkzeug==2.0.3
-nltk==3.7
-numpy==1.23.1
-tensorflow-cpu>=2.15
-scikit-learn==1.1.1
-gunicorn
-
-
+Flask>=2.3
+nltk>=3.8
+numpy>=1.26
+tensorflow-cpu==2.16.2
+scikit-learn>=1.4
