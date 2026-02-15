@@ -1,19 +1,13 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 from process import preparation, generate_response
 from flask import Flask, render_template, request
 
-import os
-import logging
-
-# download nltk
-preparation()
-
-#Start Chatbot
 app = Flask(__name__)
 
-# Set TensorFlow logging level to suppress warnings
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # or '3' to suppress all messages
-# or
-logging.getLogger('tensorflow').setLevel(logging.ERROR)
+# Load model once at startup
+preparation()
 
 @app.route("/")
 def home():
@@ -26,4 +20,4 @@ def get_bot_response():
     return result
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
